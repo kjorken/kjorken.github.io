@@ -1,8 +1,72 @@
-<section class="max-w-6xl mx-auto px-6 py-24">
-    <h2 class="text-3xl font-semibold mb-4">About Me</h2>
+---
+import { MapPin, Target, Settings } from '@lucide/astro';
+---
+<section id="about" class="py-16 md:py-20 px-4 md:px-8 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-heading font-bold text-accent mb-12">About Me</h2>
     
-    <p class="text-zinc-400 max-w-2xl">
-        Short bio here. What you do, what you enjoy building, and what
-        technologies you work with.
-    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <!-- Main Bio -->
+        <div class="md:col-span-2 space-y-5 font-body text-zinc-700 dark:text-zinc-300">
+            <p class="leading-relaxed text-base">
+                I'm a <strong>Web Developer</strong> focused on building responsive, performant websites and web applications. My work spans from vanilla HTML/CSS/JavaScript sites to modern frameworks like Astro and React, always prioritizing clean code and user experience.
+            </p>
+            
+            <p class="leading-relaxed text-base">
+                Currently, I freelance on custom web development projects including <strong>static sites with Mapbox integration</strong>, <strong>WordPress theme customization</strong> from Figma designs, and <strong>website maintenance</strong> with blog content generation and multi-language localization for international audiences.
+            </p>
+            
+            <p class="leading-relaxed text-base">
+                My <strong>primary client is OneJourney Tours</strong>, where I handle website development, blog content generation with AI assistance, and multi-language localizations across 10+ languages to drive organic search traffic.
+            </p>
+
+            <p class="leading-relaxed text-base">
+                Beyond development, I have hands-on experience with project management, QA testing, database design, and technical documentation. I hold industry certifications in <strong>Network Security, Java, and Databases</strong> from Certiport.
+            </p>
+        </div>
+
+        <!-- Quick Info Sidebar -->
+        <div class="space-y-6">
+            <!-- Location -->
+            <div class="p-4 rounded-lg border border-accent/20 dark:border-accent/30 bg-accent/5 dark:bg-accent/10">
+                <div class="flex items-start gap-3">
+                    <MapPin size={22} class="text-accent mt-1" aria-hidden="true" />
+                    <div>
+                        <h4 class="font-semibold text-sm mb-1 font-heading">Location</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 font-body">Philippines</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Areas -->
+            <div class="p-4 rounded-lg border border-accent/20 dark:border-accent/30 bg-accent/5 dark:bg-accent/10">
+                <div class="flex items-start gap-3">
+                    <Target size={22} class="text-accent mt-1" aria-hidden="true" />
+                    <div>
+                        <h4 class="font-semibold text-sm mb-2 font-heading">Specializations</h4>
+                        <ul class="text-xs space-y-1 text-zinc-600 dark:text-zinc-400 font-body">
+                            <li>• Web Development</li>
+                            <li>• Static Sites & Mapbox</li>
+                            <li>• WordPress Themes</li>
+                            <li>• Localization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="p-4 rounded-lg border border-accent/20 dark:border-accent/30 bg-accent/5 dark:bg-accent/10">
+                <div class="flex items-start gap-3">
+                    <Settings size={22} class="text-accent mt-1" aria-hidden="true" />
+                    <div>
+                        <h4 class="font-semibold text-sm mb-2 font-heading">Tools I Use</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 text-xs rounded bg-accent/10 dark:bg-accent/20 text-accent font-sans">VS Code</span>
+                            <span class="px-2 py-1 text-xs rounded bg-accent/10 dark:bg-accent/20 text-accent font-sans">Figma</span>
+                            <span class="px-2 py-1 text-xs rounded bg-accent/10 dark:bg-accent/20 text-accent font-sans">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

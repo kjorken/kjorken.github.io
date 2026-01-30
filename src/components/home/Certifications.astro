@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import CertificationBadge from "../ui/CertificationBadge.astro";
+
+const certifications = await getCollection("certifications");
+const sorted = certifications.sort((a, b) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<section class="py-16 md:py-20 px-4 md:px-8 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-heading font-bold mb-12 text-[--accent-primary]">Certifications & Achievements</h2>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+    {sorted.map((cert) => (
+      <CertificationBadge
+        title={cert.data.title}
+        issuer={cert.data.issuer}
+        date={cert.data.date}
+      />
+    ))}
+  </div>
+</section>

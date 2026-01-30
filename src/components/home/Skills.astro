@@ -1,0 +1,71 @@
+---
+import { Code2, Zap, Settings, Target } from '@lucide/astro';
+import SkillBadge from "../ui/SkillBadge.astro";
+
+const skills = {
+  languages: ["JavaScript", "HTML/CSS", "Python", "Java", "PHP"],
+  frameworks: ["React", "Next.js", "Astro"],
+  tools: ["Git/GitHub", "VS Code", "Cursor IDE", "Figma", "Firebase", "Cloudflare", "Vercel", "Tailwind CSS"],
+  specializations: ["Static Site Generation", "WordPress Theme Development", "Multi-language Localization", "Blog Content Generation", "Mapbox Integration", "Responsive Design"]
+};
+---
+
+<section class="py-16 md:py-20 px-4 md:px-8 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-heading font-bold text-accent mb-12">Skills & Technologies</h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+    <div>
+      <h3 class="text-lg font-heading font-semibold mb-4 flex items-center gap-2">
+        <Code2 size={20} class="text-accent" aria-hidden="true" />
+        Languages
+      </h3>
+      <div class="flex flex-wrap gap-3">
+        {skills.languages.map((skill) => (
+          <SkillBadge name={skill} />
+        ))}
+      </div>
+    </div>
+    
+    <div>
+      <h3 class="text-lg font-heading font-semibold mb-4 flex items-center gap-2">
+        <Zap size={20} class="text-accent" aria-hidden="true" />
+        Frameworks & Libraries
+      </h3>
+      <div class="flex flex-wrap gap-3">
+        {skills.frameworks.map((skill) => (
+          <SkillBadge name={skill} />
+        ))}
+      </div>
+    </div>
+    
+    <div>
+      <h3 class="text-lg font-heading font-semibold mb-4 flex items-center gap-2">
+        <Settings size={20} class="text-accent" aria-hidden="true" />
+        Tools & Platforms
+      </h3>
+      <div class="flex flex-wrap gap-3">
+        {skills.tools.map((skill) => (
+          <SkillBadge name={skill} />
+        ))}
+      </div>
+    </div>
+    
+    <div>
+      <h3 class="text-lg font-heading font-semibold mb-4 flex items-center gap-2">
+        <Target size={20} class="text-accent" aria-hidden="true" />
+        Specializations
+      </h3>
+      <div class="flex flex-wrap gap-3">
+        {skills.specializations.map((skill) => (
+          <SkillBadge name={skill} />
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12 p-6 rounded-lg border border-accent/20 dark:border-accent/30 bg-accent/5 dark:bg-accent/10">
+    <p class="text-sm text-neutral-600 dark:text-neutral-400 font-sans">
+      <strong>Note on languages:</strong> HTML/CSS are markup and styling technologies, not programming languages. I focus on practical, hands-on experience with technologies I actively use rather than claiming expertise in every framework.
+    </p>
+  </div>
+</section>

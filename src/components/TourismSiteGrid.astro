@@ -1,0 +1,188 @@
+---
+interface Props {
+  sites?: Array<{
+    name: string;
+    url: string;
+    location: string;
+  }>;
+}
+
+const { sites = [] } = Astro.props;
+
+// All 59 tourism sites
+const allSites = [
+  { name: "Louvre Museum Tour", url: "https://louvremuseumtour.com/", location: "Paris, France" },
+  { name: "Zion Park Tour", url: "https://zionparktour.com/", location: "Utah, USA" },
+  { name: "Buckingham Palace Guide", url: "https://buckinghampalaceguide.com/", location: "London, UK" },
+  { name: "Alcazar Cathedral Tickets", url: "https://alcazarcathedraltickets.com/", location: "Spain" },
+  { name: "Biltmore Tour", url: "https://biltmoretour.com/", location: "North Carolina, USA" },
+  { name: "Mont Parnasse Tour", url: "https://montparnassetour.com/", location: "Paris, France" },
+  { name: "Mammoth Cave Tour", url: "https://mammothcavetour.com/", location: "Kentucky, USA" },
+  { name: "Sky View Tickets", url: "https://skyviewtickets.com/", location: "Global attractions" },
+  { name: "Grand Rail Tour", url: "https://grandrailtour.com/", location: "Europe" },
+  { name: "Big Ben Tour", url: "https://bigbentour.com/", location: "London, UK" },
+  { name: "Golden Gate Guide", url: "https://goldengateguide.com/", location: "San Francisco, USA" },
+  { name: "Seine River Tour", url: "https://seinerivertour.com/", location: "Paris, France" },
+  { name: "Walk of Fame Tour", url: "https://walkoffametour.com/", location: "Los Angeles, USA" },
+  { name: "Sea Life Tickets", url: "https://sealifetickets.com/", location: "Aquariums worldwide" },
+  { name: "Eiffel Guide", url: "https://eiffelguide.com/", location: "Paris, France" },
+  { name: "Notre Dame Tour", url: "https://notredametour.com/", location: "Paris, France" },
+  { name: "Mount Rushmore Tickets", url: "https://mountrushmoretickets.com/", location: "South Dakota, USA" },
+  { name: "Parthenon Tickets", url: "https://parthenontickets.com/", location: "Greece" },
+  { name: "Westminster Abbey Tickets", url: "https://westminsterabbeytickets.com/", location: "London, UK" },
+  { name: "Garden of the Gods Tour", url: "https://gardenofthegodstour.com/", location: "Colorado, USA" },
+  { name: "9/11 Museum Tickets", url: "https://911museumtickets.com/", location: "New York, USA" },
+  { name: "Mall of America Tour", url: "https://mallofamericatour.com/", location: "Minnesota, USA" },
+  { name: "Fuji Tickets", url: "https://fujitickets.com/", location: "Japan" },
+  { name: "Knotts Berry Tickets", url: "https://knottsberrytickets.com/", location: "California, USA" },
+  { name: "Lincoln Park Tickets", url: "https://lincolnparktickets.com/", location: "Chicago, USA" },
+  { name: "Rainier Hike", url: "https://rainierhike.com/", location: "Washington, USA" },
+  { name: "Duomo Tickets", url: "https://duomotickets.com/", location: "Italy" },
+  { name: "Sky Tree Tickets", url: "https://skytreetickets.com/", location: "Tokyo, Japan" },
+  { name: "Mont Juïc Tour", url: "https://montjuictour.com/", location: "Barcelona, Spain" },
+  { name: "Sagrada Tour", url: "https://sagradatour.com/", location: "Barcelona, Spain" },
+  { name: "Tirana Tour", url: "https://tiranatour.com/", location: "Albania" },
+  { name: "Greenwich Village Tour", url: "https://greenwichvillagetour.com/", location: "New York, USA" },
+  { name: "Summer Palace Tickets", url: "https://summerpalacetickets.com/", location: "Beijing, China" },
+  { name: "Shibuya Tour", url: "https://shibuyatour.com/", location: "Tokyo, Japan" },
+  { name: "Valletta Tour", url: "https://vallettatour.com/", location: "Malta" },
+  { name: "Space Needle Guide", url: "https://spaceneedleguide.com/", location: "Seattle, USA" },
+  { name: "Lisbon Food Tour", url: "https://lisbonfoodtour.com/", location: "Portugal" },
+  { name: "Burj Khalifa Tour", url: "https://burjkhalifatour.com/", location: "Dubai, UAE" },
+  { name: "Uluru Tickets", url: "https://ulurutickets.com/", location: "Australia" },
+  { name: "Golden Temple Tour", url: "https://goldentempletour.com/", location: "India" },
+  { name: "Watarun Tour", url: "https://wataruntour.com/", location: "Bangkok, Thailand" },
+  { name: "Honolulu Pass", url: "https://honolulupass.com/", location: "Hawaii, USA" },
+  { name: "Fort Santiago", url: "https://fortsantiago.com/", location: "Philippines" },
+  { name: "Hanoi Tickets", url: "https://hanoitickets.com/", location: "Vietnam" },
+  { name: "Manama Tour", url: "https://manamatour.com/", location: "Bahrain" },
+  { name: "Pyramid Tickets", url: "https://pyramidtickets.com/", location: "Egypt" },
+  { name: "Fukuoka Tour", url: "https://fukuokatour.com/", location: "Japan" },
+  { name: "Liberty Bell Tickets", url: "https://libertybelltickets.com/", location: "Philadelphia, USA" },
+  { name: "Freedom Trail Guide", url: "https://freedomtrailguide.com/", location: "Boston, USA" },
+  { name: "Sistine Chapel Guide", url: "https://sistinechapelguide.com/", location: "Vatican City" },
+  { name: "Acropolis Guide", url: "https://acropolisguide.com/", location: "Greece" },
+  { name: "Alcatraz Guide", url: "https://alcatrazguide.com/", location: "San Francisco, USA" },
+  { name: "Golden Gate Bike", url: "https://goldengatebike.com/", location: "San Francisco, USA" },
+  { name: "Statue of Liberty Guide", url: "https://statueoflibertyguide.com/", location: "New York, USA" },
+  { name: "Destin Jet Ski", url: "https://destinjetski.com/", location: "Florida, USA" },
+  { name: "Maldives Jet Ski", url: "https://maldivesjetski.com/", location: "Maldives" },
+  { name: "Como Jet Ski", url: "https://comojetski.com/", location: "Italy" },
+  { name: "Santa Cruz Jet Ski", url: "https://santacruzjetski.com/", location: "California, USA" },
+  { name: "Santorini Jet Ski", url: "https://santorinijetski.com/", location: "Greece" },
+];
+
+const sitesToDisplay = sites.length > 0 ? sites : allSites;
+---
+
+<div class="space-y-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="sites-container">
+    {sitesToDisplay.map((site, index) => (
+      <a
+        href={site.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group p-4 rounded-lg border border-[--border-primary] dark:border-[--border-primary] hover:border-[--accent-primary] hover:bg-[--accent-light] dark:hover:bg-[--accent-dark]/10 transition-all duration-300"
+        data-site-name={site.name.toLowerCase()}
+        data-site-location={site.location.toLowerCase()}
+        data-index={index}
+      >
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex-1 min-w-0">
+            <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-[--accent-primary] truncate">
+              {site.name}
+            </h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400 truncate">
+              {site.location}
+            </p>
+          </div>
+          <svg class="w-5 h-5 text-neutral-400 group-hover:text-[--accent-primary] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <div class="flex gap-2 flex-wrap justify-center">
+    <button
+      id="prev-btn"
+      class="px-4 py-2 rounded-lg border border-[--border-primary] dark:border-[--border-primary] hover:border-[--accent-primary] hover:bg-[--accent-light] dark:hover:bg-[--accent-dark]/10 text-sm font-medium transition-colors"
+      aria-label="Previous page"
+    >
+      ← Previous
+    </button>
+    <div id="page-info" class="px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 flex items-center">
+      Page 1 of 6 (59 sites)
+    </div>
+    <button
+      id="next-btn"
+      class="px-4 py-2 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/10 text-sm font-medium transition-colors"
+      aria-label="Next page"
+    >
+      Next →
+    </button>
+  </div>
+</div>
+
+<script>
+  const sitesPerPage = 10;
+  let currentPage = 1;
+  let filteredSites = Array.from(document.querySelectorAll('[data-site-name]'));
+
+  const updateDisplay = () => {
+    const totalPages = Math.ceil(filteredSites.length / sitesPerPage);
+    const startIdx = (currentPage - 1) * sitesPerPage;
+    const endIdx = startIdx + sitesPerPage;
+
+    // Update visibility
+    Array.from(document.querySelectorAll('[data-site-name]')).forEach((element, index) => {
+      (element as HTMLElement).style.display = 
+        index >= startIdx && index < endIdx ? 'block' : 'none';
+    });
+
+    // Update page info
+    const pageInfo = document.getElementById('page-info');
+    if (pageInfo) {
+      pageInfo.textContent = `Page ${currentPage} of ${totalPages} (${filteredSites.length} sites)`;
+    }
+
+    // Update button states
+    const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement | null;
+    const nextBtn = document.getElementById('next-btn') as HTMLButtonElement | null;
+    
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+  };
+
+  // Pagination button event listeners
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+
+  prevBtn?.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updateDisplay();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    const totalPages = Math.ceil(filteredSites.length / sitesPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      updateDisplay();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  // Initial display
+  updateDisplay();
+</script>
+
+<style>
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>

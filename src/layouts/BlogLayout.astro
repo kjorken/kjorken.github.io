@@ -1,0 +1,146 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+const { title, description, date, tags = [] } = entry.data;
+
+// JSON-LD Schema for Article
+const schemaMarkup = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": date.toISOString(),
+  "dateModified": date.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Kristee Joy Dutaro"
+  },
+  "keywords": tags.join(", ")
+};
+---
+
+<BaseLayout 
+  title={`${title} – Blog`}
+  description={description}
+  canonical={`/blog/${entry.slug}`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
+  
+  <article class="max-w-3xl mx-auto px-4 md:px-8 py-16">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4 text-zinc-100">{title}</h1>
+      <p class="text-zinc-400">{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+      
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-4">
+          {tags.map((tag) => (
+            <a 
+              href={`/blog?tag=${tag}`}
+              class="text-xs bg-zinc-800 text-zinc-300 px-3 py-1 rounded hover:bg-zinc-700 transition-colors"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div class="prose prose-invert max-w-none">
+      <slot />
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-zinc-800">
+      <p class="text-zinc-400 mb-4">Enjoyed this post? Share it with your network!</p>
+      <div class="flex gap-4">
+        <a 
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(new URL(`/blog/${entry.slug}`, Astro.site).toString())}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-400 hover:text-zinc-100 transition-colors"
+        >
+          Share on Twitter
+        </a>
+        <a 
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(new URL(`/blog/${entry.slug}`, Astro.site).toString())}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-400 hover:text-zinc-100 transition-colors"
+        >
+          Share on LinkedIn
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .prose {
+    --prose-body: rgb(212, 212, 216);
+    --prose-headings: rgb(244, 244, 245);
+    --prose-links: rgb(212, 212, 216);
+    --prose-bold: rgb(244, 244, 245);
+    --prose-borders: rgb(39, 39, 42);
+    --prose-bg-muted: rgb(24, 24, 27);
+  }
+
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: rgb(244, 244, 245);
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: rgb(244, 244, 245);
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.625;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose code {
+    background-color: rgb(24, 24, 27);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: rgb(212, 212, 216);
+  }
+
+  .prose pre {
+    background-color: rgb(24, 24, 27);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  .prose a {
+    color: rgb(161, 161, 170);
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    color: rgb(244, 244, 245);
+  }
+</style>

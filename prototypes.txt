@@ -1,0 +1,15 @@
+foodies splash screen:
+https://www.figma.com/proto/gac3bJGBsbqNFW0IivRkPO/Foodies?node-id=2-91&t=6bGCkXLwF1eeg13c-1
+
+ <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/gac3bJGBsbqNFW0IivRkPO/Foodies?node-id=2-91&embed-host=share" allowfullscreen></iframe>
+
+foodies mobile design:
+https://www.figma.com/proto/gac3bJGBsbqNFW0IivRkPO/Foodies?node-id=55-3&starting-point-node-id=55%3A3&t=pMUlGg44BgXO3xAN-1
+
+ <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/gac3bJGBsbqNFW0IivRkPO/Foodies?node-id=55-3&starting-point-node-id=55%3A3&embed-host=share" allowfullscreen></iframe>
+
+
+fixDVO:
+https://www.figma.com/proto/OjqONEukCUv81y2oi9S6vH/fixDVO?node-id=1-4&starting-point-node-id=1%3A4&t=mUhfu4QiFmnhhiIQ-1
+
+ <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/OjqONEukCUv81y2oi9S6vH/fixDVO?node-id=1-4&starting-point-node-id=1%3A4&embed-host=share" allowfullscreen></iframe>

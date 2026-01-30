@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  issuer: string;
+  date: Date;
+}
+
+const { title, issuer, date } = Astro.props;
+
+const formatDate = (d: Date) => {
+  return new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+};
+---
+
+<div class="flex flex-col items-center gap-3 p-5 bg-[--bg-tertiary] rounded-lg border border-[--border-primary] hover:border-[--accent-primary] hover:bg-[--accent-light]/70 transition-all group">
+  <div class="w-12 h-12 bg-gradient-to-br from-[--accent-primary] to-[--accent-hover] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.429 5.951 1.429a1 1 0 001.169-1.409l-7-14z"/>
+    </svg>
+  </div>
+  <h4 class="font-semibold text-zinc-100 text-center text-sm leading-tight">{title}</h4>
+  <p class="text-xs text-zinc-400 text-center">{issuer}</p>
+  <p class="text-xs text-zinc-500 font-medium">{formatDate(date)}</p>
+</div>

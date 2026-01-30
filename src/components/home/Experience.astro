@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import ExperienceCard from "../ui/ExperienceCard.astro";
+
+const experiences = await getCollection("experience");
+const sorted = experiences.sort((a, b) => {
+  const aDate = a.data.endDate || new Date();
+  const bDate = b.data.endDate || new Date();
+  return new Date(bDate).getTime() - new Date(aDate).getTime();
+});
+---
+
+<section class="py-16 md:py-20 px-4 md:px-8 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-heading font-bold mb-12 text-[--accent-primary]">Experience</h2>
+  
+  <div class="space-y-6 md:space-y-8">
+    {sorted.map((exp) => (
+      <ExperienceCard
+        title={exp.data.title}
+        company={exp.data.company}
+        startDate={exp.data.startDate}
+        endDate={exp.data.endDate}
+        description={exp.data.description}
+        current={exp.data.current}
+      />
+    ))}
+  </div>
+</section>
