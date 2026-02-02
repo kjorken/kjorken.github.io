@@ -1,5 +1,5 @@
 {
-  "name": "kj-portfolio",
+  "name": "",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,13 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
-    "@fontsource-variable/inter": "^5.2.8",
     "@lucide/astro": "^0.563.0",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.15",
-    "lucide-astro": "^0.556.0",
+    "astro": "^5.17.1",
     "tailwindcss": "^4.1.18"
   }
 }

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Tailwind base styles + custom vars for light/dark */
+:root {
+  --bg: 248 250 252;      /* Light background */
+  --text: 15 23 42;       /* Light text */
+}
+
+.dark {
+  --bg: 10 10 10;         /* Dark background */
+  --text: 229 231 235;    /* Light text on dark bg */
+}
+
+html {
+    color-scheme: light dark;
+}
+
+body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--text));
+    @apply antialiased transition-colors duration-300;
+}
+
+html.dark .icon-sun {
+  display: none;
+}
+
+html:not(.dark) .icon-moon {
+  display: none;
+}
