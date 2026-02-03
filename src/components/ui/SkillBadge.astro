@@ -7,6 +7,6 @@ interface Props {
 const { name, category } = Astro.props;
 ---
 
-<span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-[--bg-tertiary] text-[--accent-primary] border border-[--accent-primary] hover:bg-[--accent-light] hover:text-[--accent-dark] transition-colors">
+<span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-[var(--bg-elevated)] text-[var(--accent)] border border-[var(--border-default)] hover:border-[var(--accent)] hover:bg-[var(--accent-muted)] transition-colors">
   {name}
 </span>
