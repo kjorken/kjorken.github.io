@@ -11,20 +11,20 @@ export default {
     extend: {
       fontFamily: {
         sans: [
-          'InterVariable',
+          'Source Sans 3 Variable',
           ...fontFamily.sans,
         ],
         heading: [
-          'Gondens',
-          'InterVariable',
+          'Plus Jakarta Sans Variable',
           ...fontFamily.sans,
         ],
       },
       colors: {
+        /* Design system: use var(--accent) in CSS for theme-aware light/dark */
         accent: {
-          DEFAULT: '#a3ff12', // Neon/Lime Green
-          light: '#d4ff7f',
-          dark: '#6ad100',
+          DEFAULT: '#0D9488', // Teal (light mode)
+          hover: '#0F766E',
+          muted: '#CCFBF1',
         },
       },
     },
