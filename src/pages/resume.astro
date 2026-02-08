@@ -1,6 +1,6 @@
 ---
 /**
- * Resume page — dynamically rendered with pixel/glitch design.
+ * Resume page — dynamically rendered with terminal design.
  * All data from content collections and profile.
  */
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -86,9 +86,11 @@ const formatDate = (d: Date) =>
           <span class="text-[var(--accent)]" aria-hidden="true">&gt;</span>
           Professional Summary
         </h2>
-        <p class="text-[var(--text-muted)] leading-relaxed text-sm">
-          {profile.bio[0]}
-        </p>
+        <div class="text-[var(--text-muted)] leading-relaxed text-sm space-y-3">
+          <p class="mb-0">{profile.bio[0]}</p>
+          <p class="mb-0">{profile.bio[1]}</p>
+          <p class="mb-0">{profile.bio[3]}</p>
+        </div>
       </section>
 
       <!-- Core Competencies -->
@@ -176,9 +178,23 @@ const formatDate = (d: Date) =>
           {
             certifications.map((cert) => (
               <div class="border-l-2 border-[var(--accent)] pl-4">
-                <p class="font-heading font-semibold text-[var(--text-primary)] mb-0 text-sm">
-                  {cert.data.title}
-                </p>
+                <div class="flex items-center gap-2 flex-wrap">
+                  {cert.data.credentialUrl ? (
+                    <a
+                      href={cert.data.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-heading font-semibold text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors text-sm inline-flex items-center gap-1"
+                    >
+                      {cert.data.title}
+                      <ExternalLink size={12} aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <p class="font-heading font-semibold text-[var(--text-primary)] mb-0 text-sm">
+                      {cert.data.title}
+                    </p>
+                  )}
+                </div>
                 <p class="font-mono text-xs text-[var(--text-muted)] mb-0">
                   {cert.data.issuer} &bull; {formatDate(cert.data.date)}
                 </p>
