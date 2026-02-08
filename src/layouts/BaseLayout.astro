@@ -93,17 +93,15 @@ const schemaMarkup = {
 
     <!--
       Theme init script — runs before first paint to prevent flash.
-      Reads stored preference or system preference; defaults to light.
+      Reads stored preference; defaults to dark when none stored.
     -->
     <script is:inline>
       (function () {
         var stored = localStorage.getItem("theme");
-        var prefersDark =
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (stored === "dark" || (!stored && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        } else {
+        if (stored === "light") {
           document.documentElement.classList.remove("dark");
+        } else {
+          document.documentElement.classList.add("dark");
         }
       })();
     </script>
