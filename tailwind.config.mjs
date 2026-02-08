@@ -15,18 +15,14 @@ export default {
           ...fontFamily.sans,
         ],
         heading: [
-          'Pixelify Sans',
-          'Source Sans 3 Variable',
-          ...fontFamily.sans,
+          'JetBrains Mono',
+          ...fontFamily.mono,
         ],
         pixel: [
-          'Press Start 2P',
-          'Pixelify Sans',
+          'JetBrains Mono',
           ...fontFamily.mono,
         ],
         mono: [
-          'ui-monospace',
-          'Cascadia Code',
           'JetBrains Mono',
           ...fontFamily.mono,
         ],

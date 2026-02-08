@@ -1,5 +1,5 @@
 /* ============================================
- * Global Styles — Pixel Design System
+ * Global Styles — Terminal / Dev Design System
  *
  * Structure:
  *   1. Font imports
@@ -14,11 +14,10 @@
 
 /* ---- 1. Font imports ---- */
 @import "@fontsource-variable/source-sans-3";
-@import "@fontsource/pixelify-sans/400.css";
-@import "@fontsource/pixelify-sans/500.css";
-@import "@fontsource/pixelify-sans/600.css";
-@import "@fontsource/pixelify-sans/700.css";
-@import "@fontsource/press-start-2p/400.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/600.css";
+@import "@fontsource/jetbrains-mono/700.css";
 
 /* ---- 2. Tailwind + dark variant ---- */
 @import "tailwindcss";
@@ -55,11 +54,11 @@
   --error: #ef4444;
   --info: #0891b2;
 
-  /* Typography */
+  /* Typography — terminal/dev aesthetic; mono pairs with form and headings */
   --font-sans: "Source Sans 3 Variable", system-ui, sans-serif;
-  --font-heading: "Pixelify Sans", "Source Sans 3 Variable", system-ui, sans-serif;
-  --font-pixel: "Press Start 2P", "Pixelify Sans", monospace;
-  --font-mono: ui-monospace, "Cascadia Code", "JetBrains Mono", monospace;
+  --font-heading: "JetBrains Mono", ui-monospace, monospace;
+  --font-pixel: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   color-scheme: light;
 }
@@ -105,7 +104,7 @@
     transition: background-color 0.3s, color 0.3s;
   }
 
-  /* Heading defaults — pixel font for all headings */
+  /* Heading defaults — terminal monospace for all headings */
   h1,
   h2,
   h3,
@@ -266,7 +265,7 @@
     margin-bottom: 2.5rem;
   }
 
-  /* -- Buttons (pixel-style: no border-radius, sharp edges) -- */
+  /* -- Buttons (terminal-style: no border-radius, sharp edges) -- */
 
   .c-btn {
     display: inline-flex;
@@ -331,7 +330,7 @@
     border-color: var(--text-subtle);
   }
 
-  /* -- Cards (pixel-border style) -- */
+  /* -- Cards (terminal-style border) -- */
 
   .c-card {
     border-radius: 0;
@@ -347,7 +346,7 @@
       4px 4px 0 0 var(--accent);
   }
 
-  /* -- Badges (pixel-styled) -- */
+  /* -- Badges (terminal-styled) -- */
 
   .c-badge {
     display: inline-flex;
