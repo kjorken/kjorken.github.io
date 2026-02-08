@@ -1,6 +1,6 @@
 ---
 title: WordPress Themes
-description: WordPress theme work under my client: converting HTML/CSS to themes, and customizing 9+ themes from Figma and other sources. I help with development, maintenance, and deployment; my client mainly maintains the sites.
+description: "WordPress theme work under my client: converting HTML/CSS to themes, and customizing 9+ themes from Figma and other sources. I help with development, maintenance, and deployment; my client mainly maintains the sites."
 date: 2025-01-05
 featured: true
 category: client
