@@ -7,7 +7,7 @@
 import "../styles/global.css";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import profile from "../data/profile";
 
 const {
@@ -49,7 +49,7 @@ const schemaMarkup = {
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -89,36 +89,16 @@ const schemaMarkup = {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- View Transitions for smooth page navigation -->
-    <ViewTransitions />
-
-    <!--
-      Theme init script — runs before first paint to prevent flash.
-      Reads stored preference; defaults to dark when none stored.
-    -->
-    <script is:inline>
-      (function () {
-        var stored = localStorage.getItem("theme");
-        if (stored === "light") {
-          document.documentElement.classList.remove("dark");
-        } else {
-          document.documentElement.classList.add("dark");
-        }
-      })();
-    </script>
+    <ClientRouter />
   </head>
 
   <body
-    class="bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col min-h-screen"
+    class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"
   >
     <Header />
     <main class="flex-1" id="main-content">
       <slot />
     </main>
     <Footer />
-
-    <!-- Theme module — handles view-transition re-sync and system-change listener -->
-    <script type="module">
-      import "../scripts/theme.ts";
-    </script>
   </body>
 </html>
