@@ -4,6 +4,7 @@ description: "Exploring the challenges and learnings from developing a comprehen
 date: 2024-09-10
 author: "Kristee Joy Dutaro"
 tags: ["web-development", "database-design", "enterprise-software", "internship", "lessons-learned"]
+published: false
 ---
 
 During my internship at Jairosoft, I had the opportunity to build an internal timesheet management system from scratch. While it never made it to production as a commercial product, the experience was invaluable and taught me lessons that have shaped how I approach software development since then.

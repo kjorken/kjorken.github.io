@@ -1,7 +1,7 @@
 ---
 /**
  * BlogPreview — latest published blog posts with pixel styling.
- * Shows up to 3 posts. Hidden if no published posts exist.
+ * Shows up to 3 posts, or a "coming soon" teaser if none are published.
  */
 import { getCollection } from "astro:content";
 
@@ -15,28 +15,27 @@ const published = posts
   .slice(0, 3);
 ---
 
-{
-  published.length > 0 && (
-    <section id="blog" aria-label="Latest Writing" class="c-section">
-      <div class="c-container">
-        <p class="c-section-eyebrow">Blog</p>
+<section id="blog" aria-label="Latest Writing" class="c-section">
+  <div class="c-container">
+    <p class="c-section-eyebrow">Blog</p>
 
-        <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
-          <div>
-            <h2 class="c-section-title">Latest Writing</h2>
-            <p class="c-section-desc mb-0">
-              Articles and insights about web development and modern
-              technologies.
-            </p>
-          </div>
-          <a
-            href="/blog"
-            class="c-link font-mono text-xs text-[var(--accent)] hover:text-[var(--accent-hover)] border border-transparent hover:border-[var(--border-default)] px-3 py-1.5"
-          >
-            All articles &rarr;
-          </a>
-        </div>
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+      <div>
+        <h2 class="c-section-title">Latest Writing</h2>
+        <p class="c-section-desc mb-0">
+          Articles and insights about web development and modern technologies.
+        </p>
+      </div>
+      <a
+        href="/blog"
+        class="c-link font-mono text-xs text-[var(--accent)] hover:text-[var(--accent-hover)] border border-transparent hover:border-[var(--border-default)] px-3 py-1.5"
+      >
+        View blog &rarr;
+      </a>
+    </div>
 
+    {
+      published.length > 0 ? (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {published.map((post) => (
             <a
@@ -71,7 +70,20 @@ const published = posts
             </a>
           ))}
         </div>
-      </div>
-    </section>
-  )
-}
+      ) : (
+        <div class="c-card p-8 text-center">
+          <div class="max-w-md mx-auto">
+            <p class="font-heading text-xl font-semibold text-[var(--text-primary)] mb-3">
+              Coming Soon
+            </p>
+            <p class="text-[var(--text-muted)] mb-0">
+              I'm currently working on sharing my experiences and insights.
+              Check back soon for new articles on web development, modern
+              technologies, and best practices.
+            </p>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

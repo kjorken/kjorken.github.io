@@ -33,56 +33,78 @@ const sorted = published.sort(
         best practices.
       </p>
 
-      <div class="flex items-center justify-between mb-6 pb-4 border-b-2 border-[var(--border-default)]">
-        <p class="font-mono text-xs text-[var(--text-muted)] mb-0">
-          {sorted.length} article{sorted.length !== 1 ? "s" : ""}
-        </p>
-        <a href="/blog/rss.xml" class="c-link font-mono text-xs border border-transparent hover:border-[var(--border-default)] px-2 py-1">
-          <Rss size={14} aria-hidden="true" />
-          RSS Feed
-        </a>
-      </div>
-
-      <ul class="space-y-4">
-        {
-          sorted.map((post) => (
-            <li>
+      {
+        sorted.length > 0 ? (
+          <>
+            <div class="flex items-center justify-between mb-6 pb-4 border-b-2 border-[var(--border-default)]">
+              <p class="font-mono text-xs text-[var(--text-muted)] mb-0">
+                {sorted.length} article{sorted.length !== 1 ? "s" : ""}
+              </p>
               <a
-                href={`/blog/${post.slug}`}
-                class="c-card block p-6 no-underline hover:no-underline group"
+                href="/blog/rss.xml"
+                class="c-link font-mono text-xs border border-transparent hover:border-[var(--border-default)] px-2 py-1"
               >
-                <div class="flex items-start justify-between gap-4 mb-2">
-                  <h2 class="font-heading text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
-                    {post.data.title}
-                  </h2>
-                  <time
-                    class="font-mono text-xs text-[var(--text-subtle)] whitespace-nowrap"
-                    datetime={post.data.date.toISOString()}
-                  >
-                    {post.data.date.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </time>
-                </div>
-                <p class="text-[var(--text-muted)] text-sm mb-3">
-                  {post.data.description}
-                </p>
-                {post.data.tags && post.data.tags.length > 0 && (
-                  <div class="flex flex-wrap gap-2">
-                    {post.data.tags.map((tag) => (
-                      <span class="font-mono text-xs bg-[var(--bg-elevated)] text-[var(--text-muted)] px-2 py-0.5 border border-[var(--border-default)]">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <Rss size={14} aria-hidden="true" />
+                RSS Feed
               </a>
-            </li>
-          ))
-        }
-      </ul>
+            </div>
+
+            <ul class="space-y-4">
+              {sorted.map((post) => (
+                <li>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="c-card block p-6 no-underline hover:no-underline group"
+                  >
+                    <div class="flex items-start justify-between gap-4 mb-2">
+                      <h2 class="font-heading text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
+                        {post.data.title}
+                      </h2>
+                      <time
+                        class="font-mono text-xs text-[var(--text-subtle)] whitespace-nowrap"
+                        datetime={post.data.date.toISOString()}
+                      >
+                        {post.data.date.toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </time>
+                    </div>
+                    <p class="text-[var(--text-muted)] text-sm mb-3">
+                      {post.data.description}
+                    </p>
+                    {post.data.tags && post.data.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-2">
+                        {post.data.tags.map((tag) => (
+                          <span class="font-mono text-xs bg-[var(--bg-elevated)] text-[var(--text-muted)] px-2 py-0.5 border border-[var(--border-default)]">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <div class="c-card p-8 text-center">
+            <div class="max-w-md mx-auto">
+              <p class="font-heading text-lg font-semibold text-[var(--text-primary)] mb-3">
+                Blog Coming Soon
+              </p>
+              <p class="text-[var(--text-muted)] text-sm mb-4">
+                I'm currently working on sharing my experiences and insights
+                about web development, modern technologies, and best practices.
+              </p>
+              <p class="font-mono text-xs text-[var(--text-subtle)]">
+                Check back soon for new articles!
+              </p>
+            </div>
+          </div>
+        )
+      }
     </div>
   </section>
 </BaseLayout>
