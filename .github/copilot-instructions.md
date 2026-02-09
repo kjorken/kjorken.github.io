@@ -82,7 +82,7 @@ const { title, tech = [], featured = false } = Astro.props;
 ### SEO & Metadata
 - `BaseLayout.astro` handles Open Graph, Twitter cards, canonical URLs, JSON-LD schema
 - Override via layout props: `title`, `description`, `ogImage`, `canonical`
-- Site URL: `https://kjdutaro.xyz` (in `astro.config.mjs`)
+- Site URL: `https://kjorken.xyz` (in `astro.config.mjs`)
 - Sitemap and RSS auto-generated via integrations
 
 ### Collection Queries

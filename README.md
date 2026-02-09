@@ -4,7 +4,7 @@
 
 I build responsive, performant websites and web apps for clients worldwide — from tourism sites and WordPress themes to modern frameworks like Astro and React.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-kjdutaro.github.io-22d3ee?style=flat-square)](https://kjdutaro.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-kjorken.xyz-22d3ee?style=flat-square)](https://kjorken.xyz)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-kjdutaro-0a66c2?style=flat-square&logo=linkedin)](https://linkedin.com/in/kjdutaro)
 [![Email](https://img.shields.io/badge/Email-kjdutaro%40gmail.com-ea4335?style=flat-square&logo=gmail)](mailto:kjdutaro@gmail.com)
 

@@ -66,10 +66,10 @@ const profile: Profile = {
     phone: "+63 956 179 3552",
   },
   social: {
-    github: "https://github.com/kjdutaro",
+    github: "https://github.com/kjorken",
     linkedin: "https://linkedin.com/in/kjdutaro",
   },
-  siteUrl: "https://kjdutaro.github.io",
+  siteUrl: "https://kjorken.xyz",
   highlights: [
     { label: "Tourism Sites (20+ countries)", value: "59+" },
     { label: "Languages", value: "10+" },

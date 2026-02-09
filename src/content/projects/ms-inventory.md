@@ -5,7 +5,7 @@ date: 2023-11-05
 featured: true
 category: personal
 tech: ["Next.js", "TypeScript", "Prisma", "Tailwind CSS", "Cypress", "Electron"]
-github: https://github.com/kjdutaro/M-and-S-Inventory-Management
+github: https://github.com/kjorken/M-and-S-Inventory-Management
 ---
 
 M&S Inventory Management is a comprehensive full-stack system for managing product inventory across multiple locations. Built with modern web technologies including Next.js for the frontend, Prisma for database operations, and Electron for desktop application support.

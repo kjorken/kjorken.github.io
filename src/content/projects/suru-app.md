@@ -4,7 +4,7 @@ description: A progressive web app (PWA) built with vanilla JavaScript and local
 date: 2023-12-10
 category: personal
 tech: [JavaScript, PWA, Local Storage, Service Workers]
-github: https://github.com/kjdutaro/suru-app
+github: https://github.com/kjorken/suru-app
 liveLink: https://suru-app.vercel.app
 ---
 

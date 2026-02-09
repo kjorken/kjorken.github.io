@@ -5,7 +5,7 @@ date: 2024-03-20
 featured: false
 category: prototype
 tech: [Figma, "UI/UX Design", Prototyping, "Mobile Design"]
-github: https://github.com/kjdutaro/foodies-recipe
+github: https://github.com/kjorken/foodies-recipe
 ---
 
 Foodies is a mobile recipe application with comprehensive UI/UX design prototypes. The interactive Figma designs showcase the complete user experience from onboarding through recipe discovery and sharing, featuring modern animations and intuitive navigation.

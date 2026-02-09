@@ -5,7 +5,7 @@ date: 2023-10-20
 featured: false
 category: academic
 tech: ["Python", "TensorFlow", "PyTorch", "NumPy", "Pandas", "Jupyter", "Machine Learning"]
-github: https://github.com/kjdutaro/Exponential-Long-Short-Term-Memory
+github: https://github.com/kjorken/Exponential-Long-Short-Term-Memory
 ---
 
 This machine learning project demonstrates the implementation of LSTM neural networks for predicting time series data with exponential patterns. It showcases deep learning fundamentals and their practical applications in forecasting and pattern recognition.

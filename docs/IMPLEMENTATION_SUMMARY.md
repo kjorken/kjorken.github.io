@@ -217,7 +217,7 @@ src/components/
 
 ## 📝 Configuration Notes
 
-**Site URL**: Set in `astro.config.mjs` and `src/data/profile.ts` (e.g. GitHub Pages: `https://kjdutaro.github.io`)
+**Site URL**: Set in `astro.config.mjs` and `src/data/profile.ts` (e.g. GitHub Pages: `https://kjorken.xyz`)
 **Email Contact**: Update in `src/data/profile.ts`; contact form uses Formspree
 **Social Links**: Verify all GitHub, LinkedIn URLs are current
 **Resume**: Add resume PDF to public folder and link from About section

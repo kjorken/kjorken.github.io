@@ -5,7 +5,7 @@ date: 2023-08-15
 featured: false
 category: academic
 tech: ["x86-64 Assembly", "C", "Systems Programming", "GDB", "Performance Optimization"]
-github: https://github.com/kjdutaro/assembly-project
+github: https://github.com/kjorken/assembly-project
 ---
 
 This project demonstrates deep understanding of low-level systems programming through direct assembly language development. It covers fundamental concepts in computer architecture, memory management, and performance optimization at the CPU instruction level.
